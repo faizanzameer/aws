@@ -54,6 +54,7 @@ jobs:
         docker build -t faizanzameer/aws:1.1 .
         docker tag faizanzameer/aws:1.1 public.ecr.aws/x4l5q5n0/faizanzameer/aws:1.1
         docker push public.ecr.aws/x4l5q5n0/faizanzameer/aws:1.1
+        echo "::set-output name=image::public.ecr.aws/x4l5q5n0/faizanzameer/aws:1.1"
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
