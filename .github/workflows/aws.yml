@@ -10,7 +10,7 @@ env:
   ECR_REPOSITORY: aws
   ECS_SERVICE: ecs-service
   ECS_CLUSTER: ecs-cluster
-  ECS_TASK_DEFINITION: .github/workflows/task-definition.json
+  ECS_TASK_DEFINITION: .github/workflows/ecs-task-definition.json
   CONTAINER_NAME: aws-container
 
 permissions:
@@ -59,14 +59,14 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: .github/workflows/task-definition.json
+        task-definition: .github/workflows/ecs-task-definition.json
         container-name: aws-container
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: .github/workflows/task-definition.jsonn
+        task-definition: .github/workflows/ecs-task-definition.jsonn
         service: ecs-service
         cluster: ecs-cluster
         wait-for-service-stability: true
