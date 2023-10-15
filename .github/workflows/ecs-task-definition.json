@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ca-central-1:317347503988:task-definition/ecs-task:1",
+    "taskDefinitionArn": "arn:aws:ecs:ca-central-1:317347503988:task-definition/ecs-task:2",
     "containerDefinitions": [
         {
             "name": "aws-container",
-            "image": "public.ecr.aws/x4l5q5n0/faizanzameer/aws:1.0",
+            "image": "public.ecr.aws/x4l5q5n0/faizanzameer/aws:1.1",
             "cpu": 0,
             "portMappings": [
                 {
