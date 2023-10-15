@@ -10,7 +10,7 @@ env:
   ECR_REPOSITORY: aws
   ECS_SERVICE: ecs-service
   ECS_CLUSTER: ecs-cluster
-  ECS_TASK_DEFINITION: ecs-task
+  ECS_TASK_DEFINITION: ecs-task-definition
   CONTAINER_NAME: aws-container
 
 permissions:
@@ -59,14 +59,14 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: ecs-task
+        task-definition: ecs-task-definition
         container-name: aws-container
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: ecs-task
+        task-definition: ecs-task-definition
         service: ecs-service
         cluster: ecs-cluster
         wait-for-service-stability: true
