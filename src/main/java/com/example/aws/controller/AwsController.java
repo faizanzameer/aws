@@ -15,7 +15,7 @@ public class AwsController {
 	
 	@GetMapping("content")
 	public Content getContent() {
-		return new Content(1, "Content-1", ContentType.ARTICLE, LocalDateTime.now());
+		return new Content(1, "Content-2", ContentType.ARTICLE, LocalDateTime.now());
 	}
 
 }
